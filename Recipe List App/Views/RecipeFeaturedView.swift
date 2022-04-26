@@ -16,6 +16,7 @@ struct RecipeFeaturedView: View {
             Text("Featured Recipes")
                 .bold()
                 .padding(.leading)
+                .padding(.top, 40)
                 .font(.title)
             
             GeometryReader { g in
