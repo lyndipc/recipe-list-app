@@ -26,7 +26,7 @@ struct RecipeDetailView: View {
                     .bold()
                     .padding(.leading)
                     .padding(.top, 20)
-                    .font(.title)
+                    .font(Font.custom("Avenir Heavy", size: 30))
                 
                 // MARK: Servinge Size Picker
                 VStack(alignment: .leading) {
@@ -38,17 +38,19 @@ struct RecipeDetailView: View {
                         Text("8").tag(8)
                     }
                     .pickerStyle(SegmentedPickerStyle())
+                    .font(Font.custom("Avenir", size: 16))
                 }
                 .padding()
                 
                 // MARK: Ingredients
                 VStack(alignment: .leading) {
                     Text("Ingredients")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 18))
                         .padding([.top, .bottom], 5)
                     
                     ForEach(recipe.ingredients) { item in
                         Text("• " + RecipeModel.getPortion(ingredient: item, recipeServings: recipe.servings, targetServings: selectedServingSize) + " " + item.name.lowercased())
+                            .font(Font.custom("Avenir", size: 16))
                     }
                 }
                 .padding(.horizontal)
@@ -58,12 +60,13 @@ struct RecipeDetailView: View {
                 // MARK: Directions
                 VStack(alignment: .leading) {
                     Text("Directions")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 18))
                         .padding([.bottom, .top], 5)
                     
                     ForEach(0..<recipe.directions.count, id: \.self) { index in
                         Text(String(index + 1) + ". " + recipe.directions[index])
                             .padding(.bottom, 5)
+                            .font(Font.custom("Avenir", size: 16))
                     }
                 }
                 .padding(.horizontal)
